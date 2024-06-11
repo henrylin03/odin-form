@@ -10,6 +10,43 @@
 
 <body>
 
+  <main>
+
+    <form>
+      <ul>
+        <li>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="john.smith@mail.com">
+        </li>
+        <li>
+          <label for="country">Country</label>
+          <select name="country" id="country">
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="new-zealand">New Zealand</option>
+          </select>
+        </li>
+        <li>
+          <label for="password">Set a password</label>
+          <input type="password" name="password" id="password">
+        </li>
+        <li>
+          <label for="confirm-password">Confirm your password</label>
+          <input type="password" name="confirm-password" id="confirm-password">
+        </li>
+        <li class="button">
+          <button type="submit">Submit</button>
+        </li>
+        <li class="button">
+          <button type="reset">Reset</button>
+        </li>
+      </ul>
+    </form>
+
+  </main>
+
   <script src="script.js"></script>
 </body>
 
