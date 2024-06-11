@@ -66,6 +66,15 @@ button {
   border: none;
   border-radius: var(--input-border-radius);
   padding: 5px 20px;
+  color: black;
+}
+
+button[type="submit"] {
+  background-color: lightgreen;
+}
+
+button[type="reset"] {
+  background-color: lightgray;
 }
 
 .btn-group {
