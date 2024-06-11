@@ -25,6 +25,10 @@ li {
   flex-direction: column;
 }
 
+button {
+  cursor: pointer;
+}
+
 .btn-group {
   flex-direction: row;
   gap: 10px;
