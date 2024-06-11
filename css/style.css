@@ -29,6 +29,10 @@ li {
   flex-direction: column;
 }
 
+label {
+  font-size: .8rem;
+}
+
 input {
   padding: 5px 10px;
 }
