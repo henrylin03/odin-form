@@ -24,6 +24,8 @@ h1 {
 form {
   margin: 0 auto;
   width: 20%;
+  --input-border: 1px lightgray solid;
+  --input-border-radius: 10px;
 }
 
 ul {
@@ -45,10 +47,15 @@ label {
 
 input {
   padding: 5px 10px;
+  outline: none;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
 }
 
 select {
   padding: 7px 6px;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
 }
 
 button {
