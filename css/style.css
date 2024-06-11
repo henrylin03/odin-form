@@ -13,17 +13,18 @@ main {
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  --width: max(250px, 15%);
 }
 
 h1 {
   margin: 0 auto;
   text-align: left;
-  width: 20%;
+  width: var(--width);
 }
 
 form {
   margin: 0 auto;
-  width: 20%;
+  width: var(--width);
   --input-border: 1px lightgray solid;
   --input-border-radius: 10px;
 }
