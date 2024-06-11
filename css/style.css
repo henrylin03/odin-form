@@ -60,6 +60,9 @@ select {
 
 button {
   cursor: pointer;
+  outline: none;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
 }
 
 .btn-group {
