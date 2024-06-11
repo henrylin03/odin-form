@@ -16,6 +16,10 @@ main {
   width: 100%;
 }
 
+form {
+  width: 20%;
+}
+
 ul {
   padding: 0;
   display: flex;
