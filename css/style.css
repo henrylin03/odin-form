@@ -28,6 +28,14 @@ li {
   flex-direction: column;
 }
 
+input {
+  padding: 5px 10px;
+}
+
+select {
+  padding: 7px 6px;
+}
+
 button {
   cursor: pointer;
 }
