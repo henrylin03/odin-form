@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
+:root {
+  --primary-clr: #ffa600;
+  --error-clr: hsl(0, 100%, 50%);
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   display: flex;
@@ -70,7 +75,7 @@ button {
 }
 
 button[type="submit"] {
-  background-color: lightgreen;
+  background-color: var(--primary-clr);
 }
 
 button[type="reset"] {
