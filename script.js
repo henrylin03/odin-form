@@ -9,7 +9,6 @@ form.addEventListener("submit", (e) => {
   validateRequiredField(password);
   validateRequiredField(passwordConfirm);
   checkIfPasswordsMatch();
-  // validatePasswords();
 });
 email.addEventListener("blur", validateEmail);
 password.addEventListener("blur", handleValidatingPasswords);
@@ -23,13 +22,14 @@ function validateEmail() {
   if (email.validity.valid) {
     error.textContent = "";
     container.classList.remove("error");
-    return;
+    return true;
   }
 
   validateRequiredField(email);
   container.classList.add("error");
   if (email.validity.typeMismatch)
-    return (error.textContent = "Please enter a valid email address");
+    error.textContent = "Please enter a valid email address";
+  return false;
 }
 
 function handleValidatingPasswords(e) {
