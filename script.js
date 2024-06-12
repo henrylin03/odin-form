@@ -3,8 +3,6 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const passwordConfirm = document.querySelector("#confirm-password");
 
-// when form submits: prevent default, validate email, validate passwords
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -36,6 +34,18 @@ function validatePasswords() {
   const passwordFields = [password, passwordConfirm];
 
   passwordFields.forEach((elem) => elem.classList.remove("error"));
+
+  // 1: check if fields have values in them - if not, print error
+  passwordFields.forEach((elem) => {
+    const container = elem.parentNode;
+    const error = container.querySelector(".error-message");
+    if (elem.validity.valueMissing) {
+      error.textContent = "This is a required field";
+      container.classList.add("error");
+    }
+  });
+
+  // 2: if both fields have values in them, check if they match - if not print error
 
   return;
 }
