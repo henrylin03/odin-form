@@ -65,10 +65,10 @@ function removeErrors(e) {
   e.preventDefault();
 
   const inputContainers = document.querySelector("form ul").children;
-  [...inputContainers].forEach((inputContainer) => {
-    document.activeElement.blur();
-    inputContainer.classList.remove("error");
-  });
+  document.activeElement.blur();
+  [...inputContainers].forEach((inputContainer) =>
+    inputContainer.classList.remove("error")
+  );
 }
 
 // TODO: NEED TO DRAW DIAGRAM ON LOGIC TO MAKE SURE EVENT LISTENERS ARE ACTUALLY ATTACHED CORRECTLY! - may need individual event handlers for each password field
