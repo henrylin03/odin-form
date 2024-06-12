@@ -48,10 +48,11 @@ function checkIfPasswordsMatch() {
   if (isMatchingPassword) {
     passwordConfirmError.textContent = "";
     passwordConfirmContainer.classList.remove("error");
-    return;
+    return true;
   }
   passwordConfirmError.textContent = "Passwords don't match";
   passwordConfirmContainer.classList.add("error");
+  return false;
 }
 
 function validateRequiredField(requiredInput) {
