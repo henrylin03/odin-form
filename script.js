@@ -12,6 +12,12 @@ email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
 password.addEventListener("input", (e) => validateRequiredField(e.target));
 password.addEventListener("blur", (e) => validateRequiredField(e.target));
+passwordConfirm.addEventListener("input", (e) =>
+  validateRequiredField(e.target)
+);
+passwordConfirm.addEventListener("blur", (e) =>
+  validateRequiredField(e.target)
+);
 
 // functions
 function validateEmail() {
