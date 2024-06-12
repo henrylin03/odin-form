@@ -66,8 +66,8 @@ function removeErrors(e) {
 
   const inputContainers = document.querySelector("form ul").children;
   [...inputContainers].forEach((inputContainer) => {
+    document.activeElement.blur();
     inputContainer.classList.remove("error");
-    // inputContainer.querySelector("input").textContent = "";
   });
 }
 
