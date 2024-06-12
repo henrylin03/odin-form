@@ -22,13 +22,24 @@ function validateEmail() {
     return;
   }
 
+  validateRequiredField(email);
   container.classList.add("error");
-  if (email.validity.valueMissing)
-    return (error.textContent = "This is a required field");
   if (email.validity.typeMismatch)
     return (error.textContent = "Please enter a valid email address");
 }
 
 function validatePasswords() {
   const passwordContainers = document.querySelectorAll(".password-container");
+}
+
+function validateRequiredField(requiredInput) {
+  const container = requiredInput.parentNode;
+  const errorMessage = container.querySelector(".error-message");
+
+  if (!requiredInput.validity.valueMissing) {
+    errorMessage.textContent = "";
+    container.classList.remove("error");
+  }
+  errorMessage.textContent = "This is a required field";
+  container.classList.add("error");
 }
