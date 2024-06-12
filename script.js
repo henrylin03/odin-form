@@ -6,6 +6,8 @@ const passwordConfirm = document.querySelector("#confirm-password");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   validateEmail();
+  validateRequiredField(password);
+  validateRequiredField(passwordConfirm);
   checkIfPasswordsMatch();
   // validatePasswords();
 });
@@ -39,9 +41,8 @@ function checkIfPasswordsMatch() {
   const passwordConfirmContainer = passwordConfirm.parentNode;
   const passwordConfirmError =
     passwordConfirmContainer.querySelector(".error-message");
-  const isMatchingPassword = password.value === passwordConfirm.value;
 
-  if (isMatchingPassword) {
+  if (password.value === passwordConfirm.value) {
     passwordConfirmError.textContent = "";
     passwordConfirmContainer.classList.remove("error");
     return true;
