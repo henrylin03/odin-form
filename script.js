@@ -11,7 +11,7 @@ form.addEventListener("submit", (e) => {
 email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
 
-// event handlers
+// functions
 function validateEmail() {
   const container = email.parentNode;
   const error = container.querySelector(".error-message");
@@ -30,5 +30,5 @@ function validateEmail() {
 }
 
 function validatePasswords() {
-  return;
+  const passwordContainers = document.querySelectorAll(".password-container");
 }
