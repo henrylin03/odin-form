@@ -13,12 +13,14 @@ email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
 password.addEventListener("input", (e) => validateRequiredField(e.target));
 password.addEventListener("blur", (e) => validateRequiredField(e.target));
-passwordConfirm.addEventListener("input", (e) =>
-  validateRequiredField(e.target)
-);
-passwordConfirm.addEventListener("blur", (e) =>
-  validateRequiredField(e.target)
-);
+passwordConfirm.addEventListener("input", (e) => {
+  validateRequiredField(e.target);
+  checkIfPasswordsMatch();
+});
+passwordConfirm.addEventListener("blur", (e) => {
+  validateRequiredField(e.target);
+  checkIfPasswordsMatch();
+});
 
 // functions
 function validateEmail() {
@@ -41,9 +43,15 @@ function checkIfPasswordsMatch() {
   const passwordConfirmContainer = passwordConfirm.parentNode;
   const passwordConfirmError =
     passwordConfirmContainer.querySelector(".error-message");
-
   const isMatchingPassword = password.value === passwordConfirm.value;
-  if (isMatchingPassword) console.log(password.value);
+
+  if (isMatchingPassword) {
+    passwordConfirmError.textContent = "";
+    passwordConfirmContainer.classList.remove("error");
+    return;
+  }
+  passwordConfirmError.textContent = "Passwords don't match";
+  passwordConfirmContainer.classList.add("error");
 }
 
 function validateRequiredField(requiredInput) {
@@ -53,10 +61,11 @@ function validateRequiredField(requiredInput) {
   if (!requiredInput.validity.valueMissing) {
     container.classList.remove("error");
     errorMessage.textContent = "";
-    return;
+    return true;
   }
   errorMessage.textContent = "This is a required field";
   container.classList.add("error");
+  return false;
 }
 
 // todo: reset also clears all errors
