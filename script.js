@@ -33,16 +33,15 @@ function validateEmail() {
 function validatePasswords() {
   const passwordFields = [password, passwordConfirm];
 
+  passwordFields.forEach((elem) => elem.classList.remove("error"));
+
   passwordFields.forEach((elem) => {
     const container = elem.parentNode;
     const error = container.querySelector(".error-message");
-
-    elem.classList.remove("error");
-
     if (elem.validity.valueMissing) {
       error.textContent = "This is a required field";
       container.classList.add("error");
-    }
+    } else container.classList.remove("error");
   });
 
   // 2: if both fields have values in them, check if they match - if not print error
