@@ -9,7 +9,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   validateEmail();
-  // validatePasswords();
+  validatePasswords();
 });
 email.addEventListener("blur", validateEmail);
 
@@ -33,6 +33,10 @@ function validateEmail() {
 }
 
 function validatePasswords() {
+  const passwordFields = [password, passwordConfirm];
+
+  passwordFields.forEach((elem) => elem.classList.remove("error"));
+
   return;
 }
 
