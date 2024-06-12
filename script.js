@@ -39,7 +39,7 @@ function validatePasswords() {
     } else container.classList.remove("error");
   });
 
-  checkIfPasswordsMatch();
+  if (password.value) checkIfPasswordsMatch();
 }
 
 function checkIfPasswordsMatch() {
