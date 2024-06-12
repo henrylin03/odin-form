@@ -9,6 +9,8 @@ const passwordFields = [password, passwordConfirm];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  if (form.checkValidity()) alert(`Submitted! High five 🙌`);
+
   validateEmail();
   validatePasswords();
 });
@@ -72,4 +74,3 @@ function removeErrors(e) {
 }
 
 // TODO: NEED TO DRAW DIAGRAM ON LOGIC TO MAKE SURE EVENT LISTENERS ARE ACTUALLY ATTACHED CORRECTLY! - may need individual event handlers for each password field
-//TODO: ADD GIF FOR A HIGH FIVE ON SCREEN (MAYBE EMOJI) IF USER SUBMITS
