@@ -10,6 +10,8 @@ form.addEventListener("submit", (e) => {
 });
 email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
+password.addEventListener("blur", validatePasswords);
+passwordConfirm.addEventListener("blur", validatePasswords);
 
 // functions
 function validateEmail() {
@@ -29,7 +31,10 @@ function validateEmail() {
 }
 
 function validatePasswords() {
+  const passwordInputs = [password, passwordConfirm];
   const passwordContainers = document.querySelectorAll(".password-container");
+
+  passwordInputs.forEach((input) => validateRequiredField(input));
 }
 
 function validateRequiredField(requiredInput) {
