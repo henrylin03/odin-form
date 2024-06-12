@@ -13,10 +13,12 @@ function validateEmail() {
   if (email.validity.valid) {
     error.textContent = "";
     container.classList.remove("error");
-    console.log("all good");
     return;
   }
+
   container.classList.add("error");
   if (email.validity.valueMissing)
-    error.textContent = "This is a required field";
+    return (error.textContent = "This is a required field");
+  if (email.validity.typeMismatch)
+    return (error.textContent = "Please enter a valid email address");
 }
