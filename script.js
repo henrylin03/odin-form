@@ -3,16 +3,15 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const passwordConfirm = document.querySelector("#confirm-password");
 
+// when form submits: prevent default, validate email, validate passwords
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   validateEmail();
-  validateRequiredField(password);
-  validateRequiredField(passwordConfirm);
-  checkIfPasswordsMatch();
+  // validatePasswords();
 });
 email.addEventListener("blur", validateEmail);
-password.addEventListener("blur", handleValidatingPasswords);
-passwordConfirm.addEventListener("blur", handleValidatingPasswords);
 
 // functions
 function validateEmail() {
@@ -25,16 +24,16 @@ function validateEmail() {
     return true;
   }
 
-  validateRequiredField(email);
   container.classList.add("error");
-  if (email.validity.typeMismatch)
+  if (email.validity.valueMissing)
+    error.textContent = "This is a required field";
+  else if (email.validity.typeMismatch)
     error.textContent = "Please enter a valid email address";
   return false;
 }
 
-function handleValidatingPasswords(e) {
-  validateRequiredField(e.target);
-  checkIfPasswordsMatch();
+function validatePasswords() {
+  return;
 }
 
 function checkIfPasswordsMatch() {
@@ -49,20 +48,6 @@ function checkIfPasswordsMatch() {
   }
   passwordConfirmError.textContent = "Passwords don't match";
   passwordConfirmContainer.classList.add("error");
-  return false;
-}
-
-function validateRequiredField(requiredInput) {
-  const container = requiredInput.parentNode;
-  const errorMessage = container.querySelector(".error-message");
-
-  if (!requiredInput.validity.valueMissing) {
-    container.classList.remove("error");
-    errorMessage.textContent = "";
-    return true;
-  }
-  errorMessage.textContent = "This is a required field";
-  container.classList.add("error");
   return false;
 }
 
