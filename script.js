@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const passwordConfirm = document.querySelector("#confirm-password");
+const resetBtn = document.querySelector("button[type='reset']");
 
 const passwordFields = [password, passwordConfirm];
 
@@ -15,6 +16,7 @@ email.addEventListener("blur", validateEmail);
 passwordFields.forEach((input) =>
   input.addEventListener("blur", validatePasswords)
 );
+resetBtn.addEventListener("mousedown", removeErrors);
 
 // functions
 function validateEmail() {
@@ -59,6 +61,12 @@ function checkIfPasswordsMatch() {
   passwordConfirmContainer.classList.add("error");
 }
 
-// todo: reset also clears all errors
-// TODO: NEED TO DRAW DIAGRAM ON LOGIC TO MAKE SURE EVENT LISTENERS ARE ACTUALLY ATTACHED CORRECTLY!
+function removeErrors() {
+  const inputContainers = document.querySelector("form ul").children;
+  [...inputContainers].forEach((inputContainer) =>
+    inputContainer.classList.remove("error")
+  );
+}
+
+// TODO: NEED TO DRAW DIAGRAM ON LOGIC TO MAKE SURE EVENT LISTENERS ARE ACTUALLY ATTACHED CORRECTLY! - may need individual event handlers for each password field
 //TODO: ADD GIF FOR A HIGH FIVE ON SCREEN (MAYBE EMOJI) IF USER SUBMITS
