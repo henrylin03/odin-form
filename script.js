@@ -16,18 +16,13 @@ function validateEmail() {
   const container = email.parentNode;
   const error = container.querySelector(".error-message");
 
-  if (email.validity.valid) {
-    error.textContent = "";
-    container.classList.remove("error");
-    return true;
-  }
+  if (email.validity.valid) return container.classList.remove("error");
 
   container.classList.add("error");
   if (email.validity.valueMissing)
     error.textContent = "This is a required field";
   else if (email.validity.typeMismatch)
     error.textContent = "Please enter a valid email address";
-  return false;
 }
 
 function validatePasswords() {
@@ -44,9 +39,7 @@ function validatePasswords() {
     } else container.classList.remove("error");
   });
 
-  // 2: if both fields have values in them, check if they match - if not print error
-
-  return;
+  checkIfPasswordsMatch();
 }
 
 function checkIfPasswordsMatch() {
@@ -57,11 +50,10 @@ function checkIfPasswordsMatch() {
   if (password.value === passwordConfirm.value) {
     passwordConfirmError.textContent = "";
     passwordConfirmContainer.classList.remove("error");
-    return true;
+    return;
   }
   passwordConfirmError.textContent = "Passwords don't match";
   passwordConfirmContainer.classList.add("error");
-  return false;
 }
 
 // todo: reset also clears all errors
