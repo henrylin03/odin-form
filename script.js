@@ -10,10 +10,8 @@ form.addEventListener("submit", (e) => {
 });
 email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
-password.addEventListener("blur", validatePasswords);
-password.addEventListener("input", validatePasswords);
-passwordConfirm.addEventListener("blur", validatePasswords);
-passwordConfirm.addEventListener("input", validatePasswords);
+password.addEventListener("input", (e) => validateRequiredField(e.target));
+password.addEventListener("blur", (e) => validateRequiredField(e.target));
 
 // functions
 function validateEmail() {
@@ -32,29 +30,30 @@ function validateEmail() {
     return (error.textContent = "Please enter a valid email address");
 }
 
-function validatePasswords() {
-  const passwordInputs = [password, passwordConfirm];
+// function validatePasswords() {
+//   const passwordInputs = [password, passwordConfirm];
 
-  passwordInputs.forEach((input) => {
-    const container = input.parentNode;
-    const error = container.querySelector(".error-message");
+//   passwordInputs.forEach((input) => {
+//     const container = input.parentNode;
+//     const error = container.querySelector(".error-message");
 
-    if (input.validity.valid) {
-      error.textContent = "";
-      container.classList.remove("error");
-      return;
-    }
-    validateRequiredField(input);
-  });
-}
+//     if (input.validity.valid) {
+//       error.textContent = "";
+//       container.classList.remove("error");
+//       return;
+//     }
+//     validateRequiredField(input);
+//   });
+// }
 
 function validateRequiredField(requiredInput) {
   const container = requiredInput.parentNode;
   const errorMessage = container.querySelector(".error-message");
 
   if (!requiredInput.validity.valueMissing) {
-    errorMessage.textContent = "";
     container.classList.remove("error");
+    errorMessage.textContent = "";
+    return;
   }
   errorMessage.textContent = "This is a required field";
   container.classList.add("error");
