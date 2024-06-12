@@ -61,11 +61,14 @@ function checkIfPasswordsMatch() {
   passwordConfirmContainer.classList.add("error");
 }
 
-function removeErrors() {
+function removeErrors(e) {
+  e.preventDefault();
+
   const inputContainers = document.querySelector("form ul").children;
-  [...inputContainers].forEach((inputContainer) =>
-    inputContainer.classList.remove("error")
-  );
+  [...inputContainers].forEach((inputContainer) => {
+    inputContainer.classList.remove("error");
+    // inputContainer.querySelector("input").textContent = "";
+  });
 }
 
 // TODO: NEED TO DRAW DIAGRAM ON LOGIC TO MAKE SURE EVENT LISTENERS ARE ACTUALLY ATTACHED CORRECTLY! - may need individual event handlers for each password field
