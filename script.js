@@ -3,6 +3,8 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const passwordConfirm = document.querySelector("#confirm-password");
 
+const passwordFields = [password, passwordConfirm];
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -10,6 +12,9 @@ form.addEventListener("submit", (e) => {
   validatePasswords();
 });
 email.addEventListener("blur", validateEmail);
+passwordFields.forEach((input) =>
+  input.addEventListener("blur", validatePasswords)
+);
 
 // functions
 function validateEmail() {
@@ -26,8 +31,6 @@ function validateEmail() {
 }
 
 function validatePasswords() {
-  const passwordFields = [password, passwordConfirm];
-
   passwordFields.forEach((elem) => elem.classList.remove("error"));
 
   passwordFields.forEach((elem) => {
