@@ -34,7 +34,17 @@ function validatePasswords() {
   const passwordInputs = [password, passwordConfirm];
   const passwordContainers = document.querySelectorAll(".password-container");
 
-  passwordInputs.forEach((input) => validateRequiredField(input));
+  passwordInputs.forEach((input) => {
+    const container = input.parentNode;
+    const error = container.querySelector(".error-message");
+
+    if (input.validity.valid) {
+      error.textContent = "";
+      container.classList.remove("error");
+      return;
+    }
+    validateRequiredField(input);
+  });
 }
 
 function validateRequiredField(requiredInput) {
@@ -48,3 +58,5 @@ function validateRequiredField(requiredInput) {
   errorMessage.textContent = "This is a required field";
   container.classList.add("error");
 }
+
+// todo: reset also clears all errors
