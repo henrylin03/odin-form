@@ -6,7 +6,8 @@ const passwordConfirm = document.querySelector("#confirm-password");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   validateEmail();
-  validatePasswords();
+  checkIfPasswordsMatch();
+  // validatePasswords();
 });
 email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
@@ -36,21 +37,14 @@ function validateEmail() {
     return (error.textContent = "Please enter a valid email address");
 }
 
-// function validatePasswords() {
-//   const passwordInputs = [password, passwordConfirm];
+function checkIfPasswordsMatch() {
+  const passwordConfirmContainer = passwordConfirm.parentNode;
+  const passwordConfirmError =
+    passwordConfirmContainer.querySelector(".error-message");
 
-//   passwordInputs.forEach((input) => {
-//     const container = input.parentNode;
-//     const error = container.querySelector(".error-message");
-
-//     if (input.validity.valid) {
-//       error.textContent = "";
-//       container.classList.remove("error");
-//       return;
-//     }
-//     validateRequiredField(input);
-//   });
-// }
+  const isMatchingPassword = password.value === passwordConfirm.value;
+  if (isMatchingPassword) console.log(password.value);
+}
 
 function validateRequiredField(requiredInput) {
   const container = requiredInput.parentNode;
