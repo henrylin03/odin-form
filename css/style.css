@@ -99,7 +99,7 @@ button[type="reset"] {
   color: var(--error-clr);
 }
 
-.error input {
+input:invalid {
   border-color: var(--error-clr);
 }
 
