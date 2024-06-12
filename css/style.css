@@ -95,7 +95,7 @@ button[type="reset"] {
 }
 
 /* error */
-.error>* {
+.error label {
   color: var(--error-clr);
 }
 
@@ -109,4 +109,5 @@ button[type="reset"] {
 
 .error .error-message {
   display: block;
+  color: var(--error-clr);
 }

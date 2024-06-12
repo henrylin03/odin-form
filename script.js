@@ -6,6 +6,7 @@ form.addEventListener("submit", (e) => {
   validateEmail();
 });
 email.addEventListener("blur", validateEmail);
+email.addEventListener("input", validateEmail);
 
 function validateEmail() {
   const container = email.parentNode;
