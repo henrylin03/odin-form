@@ -16,7 +16,7 @@ function validateEmail() {
     console.log("all good");
     return;
   }
+  container.classList.add("error");
   if (email.validity.valueMissing)
     error.textContent = "This is a required field";
-  // if (email.validity.valueMissing)
 }
