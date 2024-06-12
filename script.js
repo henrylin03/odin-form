@@ -11,7 +11,9 @@ form.addEventListener("submit", (e) => {
 email.addEventListener("blur", validateEmail);
 email.addEventListener("input", validateEmail);
 password.addEventListener("blur", validatePasswords);
+password.addEventListener("input", validatePasswords);
 passwordConfirm.addEventListener("blur", validatePasswords);
+passwordConfirm.addEventListener("input", validatePasswords);
 
 // functions
 function validateEmail() {
@@ -32,7 +34,6 @@ function validateEmail() {
 
 function validatePasswords() {
   const passwordInputs = [password, passwordConfirm];
-  const passwordContainers = document.querySelectorAll(".password-container");
 
   passwordInputs.forEach((input) => {
     const container = input.parentNode;
